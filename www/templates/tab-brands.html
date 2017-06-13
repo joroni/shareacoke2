@@ -1,0 +1,56 @@
+<ion-view id="brands" view-title="Brands">
+    <ion-nav-title>
+        <div id="title" ng-hide="true">Share a Coke</div>
+        <img src="img/logo.png" class="branding">
+    </ion-nav-title>
+    <ion-content>
+
+        <!-- -->
+        <!--Automatically loops back from the begining -->
+        <ion-slide-box auto-play="true" does-continue="true" show-pager="true">
+
+            <!-- width: 100% height 50% to fill the slidder image according to the layout -->
+            <ion-slide class="swiper-slide swiper-slide-active" style="width:100%; height: 50%; " ng-repeat="slide in slide_items">
+                <div>
+                    <img ng-src="{{server_url+'/img/ads/'+ slide.p_image_id +'.jpg'}}" ng-click="showBrandInfo(item.p_id,item.p_flavor,item.p_name,item.p_image_id,item.p_category,item.p_ean)">
+
+                </div>
+            </ion-slide>
+
+        </ion-slide-box>
+
+        <div class="button-bar">
+            <a href="#/tab/filterbyBrand" class="button button-stable button-block  icon ion-android-funnel"></a>
+            <a href="#/tab/sortbyBrand" class="button button-stable button-block  icon ion-arrow-swap"></a>
+        </div>
+        <ion-list ng-repeat="item in menu_items">
+
+            <ion-item class="item-thumbnail-center item-icon-rights" style="width: 50%; float:left;">
+                <div class="rows">
+                    <img class="brand-thumbnail" ng-src="{{server_url+ '/img/brands/'+ item.p_image_id + '.png'}} " ng-click="showBrandInfo(item.p_id,item.p_flavor,item.p_name,item.p_image_id,item.p_category,item.p_ean) " onerror="this.src=fallbackSrc" onabort="this.src=fallbackSrc">
+
+                </div>
+                <div class="rows">
+                    <p style="position:absolute;right:10px; top:40px; display: none; ">
+                        <a ng-click="addToCart(item.p_id,item.p_image_id,item.p_name,item.p_ean) " class="button button-balanced button-clear icon ion-android-cart "> </a>
+                    </p>
+
+                    <h2 ng-click="showBrandInfo(item.p_id,item.p_name,item.p_flavor,item.p_image_id,item.p_category,item.p_ean) "> {{item.p_name}} </h2>
+                    <p ng-click="showBrandInfo(item.p_id,item.p_name,item.p_flavor,item.p_image_id,item.p_category,item.p_ean) "> {{item.p_flavor}}</p>
+                    <i class="icon ion-chevron-right icon-accessory hide"></i>
+                </div>
+            </ion-item>
+
+
+        </ion-list>
+
+
+        <ion-infinite-scroll ng-if="!noMoreItemsAvailable " on-infinite="loadMore() " distance="10% ">
+            <ion-infinite-scroll-content loadingSpinner="bubbles ">
+        </ion-infinite-scroll>
+
+
+
+
+    </ion-content>
+</ion-view>

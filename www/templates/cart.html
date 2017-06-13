@@ -1,0 +1,37 @@
+<ion-view title="My Reward Basket">
+    <ion-content padding="'true'" class="has-header">
+        <div>
+            <p>Total ( {{ total_qty }} ) =
+                <strong> <i class="ion-ribbon-b button-yellow icon-small"></i> {{total_amount}}</strong>
+            </p>
+        </div>
+        <button ng-click="checkout()" class="button button-positive button-block ">Claim</button>
+
+        <div ng-repeat="item in cart">
+            <div class="list card">
+                <div class="item item-divider">{{item.cart_item_name}} </div>
+                <div class="item item-body">
+                    <img ng-src="{{server_url+'/img/rewards/'+ item.cart_item_image +'.jpg'}}" width="100%" height="auto" style="width: 100%; height: auto;">
+                    <form class="list"></form>
+                    <div>
+                        <p>{{item.cart_item_qty}} x <i class="ion-ribbon-b button-yellow icon-small"></i>{{item.cart_item_price}} =
+                            <strong> <i class="ion-ribbon-b button-yellow icon-small"></i>{{ item.cart_item_qty *  item.cart_item_price  }}</strong>
+                        </p>
+                    </div>
+                    <div class="button-bar">
+                        <button ng-click="removeFromCart(item.cart_item_id)" class="button button-assertive button-block button-small icon ion-ios-trash-outline"></button>
+                        <button class="button button-stable button-pink button-block button-small icon ion-ios-plus" ng-click="inc(item.cart_item_id)"></button>
+                        <button class="button button-stable button-pink button-block button-small">{{item.cart_item_qty}}</button>
+                        <button class="button button-stable button-pink button-block  button-small icon ion-minus-circled" ng-click="dec(item.cart_item_id)"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+    </ion-content>
+</ion-view>

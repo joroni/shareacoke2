@@ -1,0 +1,50 @@
+<ion-view view-title="Rewards">
+    <ion-nav-buttons side="left">
+        <a href="#/tab/cart" menu-toggle="left" class="button button-icon icon ion-ios-cart-outline"></a>
+    </ion-nav-buttons>
+    <ion-content class="has-header">
+
+
+        <!-- -->
+        <!--Automatically loops back from the begining -->
+        <ion-slide-box auto-play="true" does-continue="true" show-pager="true">
+
+            <!-- width: 100% height 50% to fill the slidder image according to the layout -->
+            <ion-slide class="swiper-slide swiper-slide-active" style="width:100%; height: 50%; " ng-repeat="slide in slide_items">
+                <div>
+                    <img ng-src="{{server_url+'/img/ads/'+ slide.p_image_id +'.jpg'}}" ng-click="showProductInfo(slide.p_id,slide.p_description,slide.p_image_id,slide.p_name,slide.p_price)">
+                </div>
+            </ion-slide>
+
+        </ion-slide-box>
+
+        <div class="button-bar">
+            <a href="#/tab/filterby" class="button button-stable button-block  icon ion-android-funnel"></a>
+            <a href="#/tab/sortby" class="button button-stable button-block  icon ion-arrow-swap"></a>
+        </div>
+        <ion-list ng-repeat="item in menu_items">
+
+            <ion-item class="item-thumbnail-left">
+                <img class="brand-thumbnail" ng-src="{{server_url+'/img/rewards/'+ item.p_image_id +'.jpg'}}" ng-click="showProductInfo(item.p_id,item.p_description,item.p_image_id,item.p_name,item.p_price)">
+
+                <p style="position:absolute;right:10px; top:40px;">
+                    <a ng-click="addToCart(item.p_id,item.p_image_id,item.p_name,item.p_price)" class="button  button-yellow  icon ion-ribbon-b"> </a>
+                </p>
+
+                <h2 ng-click="showProductInfo(item.p_id,item.p_description,item.p_image_id,item.p_name,item.p_price)"> {{item.p_name}} </h2>
+                <p ng-click="showProductInfo(item.p_id,item.p_description,item.p_image_id,item.p_name,item.p_price)">Points: {{item.p_price}}</p>
+            </ion-item>
+
+
+        </ion-list>
+
+
+        <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="10%">
+            <ion-infinite-scroll-content loadingSpinner="bubbles">
+        </ion-infinite-scroll>
+
+
+
+
+    </ion-content>
+</ion-view>

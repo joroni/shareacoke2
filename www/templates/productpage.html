@@ -1,0 +1,20 @@
+<ion-view title="{{name}}">
+    <ion-content padding="'true'" class="has-header">
+        <img ng-src="{{img}}" width="100%" height="auto" style="width:100%; height: auto;">
+        <div class="button-bar">
+            <button class="button button-pink  button-block  icon ion-ios-bookmarks-outline"></button>
+            <button class="button button-pink  button-block  icon ion-android-favorite-outline"></button>
+            <button class="button button-pink  button-block  icon ion-share"></button>
+        </div>
+        <div class="list card">
+            <div class="item item-divider">Description</div>
+            <div class="item item-body">
+                <div>
+                    <p>{{name}}</p>
+                    <p>Points: {{price}}</p>
+                    <p>{{desc}}</p>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,38 @@
+<ion-view title="Brand">
+    <ion-content padding="'true'" class="has-header">
+        <div class="item-side" style="padding:10px;"><img ng-src="{{img}}" width="125px" height="auto" class="brand-preview" style="width: 125px; height: auto;" onerror="this.src=fallbackSrc" onabort="this.src=fallbackSrc">
+            <div class="list side-card">
+
+                <div class="item item-body">
+                    <div>
+
+                        <p><label>Brand:</label><br>{{name}}</p>
+                        <!--  <p><label>Category:</label> {{cate}}</p>-->
+                        <p><label>Flavor:</label><br>{{flavor}}</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button-bar">
+            <button class="button button-pink button-block icon ion-thumbsup"></button>
+            <button class="button button-pink button-block icon ion-android-favorite"></button>
+            <button class="button button-pink button-block icon ion-share"></button>
+        </div>
+        <div class="list card">
+            <div class="item item-divider">Description</div>
+            <div class="item item-body">
+                <div>
+                    <p><label>Brand:</label> {{name}}</p>
+                    <!--  <p><label>Category:</label> {{cate}}</p>-->
+                    <p><label>Flavor:</label> {{flavor}}</p>
+                    <p><label>EAN:</label> {{ean}}</p>
+
+                    <!--   <p>Flavor: </p>
+                    <p>EAN: </p>-->
+
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
