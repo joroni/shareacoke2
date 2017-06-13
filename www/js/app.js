@@ -31,7 +31,7 @@ angular.module('app', ['ionic', 'openfb', 'app.controllers', 'app.routes', 'app.
 
     $rootScope.$on('$stateChangeStart', function(event, toState) {
         if (toState.name !== "tab.fblogin" && toState.name !== "tab.logout" && !$window.localStorage['fbtoken']) {
-            $state.go('tab.fblogin');
+            $state.go('tab.brands');
             event.preventDefault();
         }
     });
